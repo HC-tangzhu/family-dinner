@@ -1011,99 +1011,188 @@ const DISH_EMOJIS = ['🍅', '🥬', '🥦', '🥔', '🥕', '🌽', '🥒', '�
    内置家庭菜品（基于实际口味）
    ============================================================ */
 const DEFAULT_DISHES = [
-  // ----- 汤品（高频：番茄榨菜汤 / 紫菜蛋花汤） -----
+  // ===== 汤类（高频）=====
   { name: '番茄榨菜汤', emoji: '🍅', category: 'soup', cookTime: 12, difficulty: 1,
-    tags: ['thu','kid','oil','fallback'], ingredients: '番茄,榨菜,葱花',
-    note: '几乎每两天一次，家里常备榨菜。姜蒜少放即可' },
+    tags: ['thu','kid','fallback'], ingredients: '番茄,榨菜,葱花',
+    note: '几乎每两天一次，姜蒜少放即可' },
 
-  { name: '紫菜蛋花虾皮汤', emoji: '🥣', category: 'soup', cookTime: 5, difficulty: 1,
-    tags: ['thu','kid','fallback'], ingredients: '紫菜,鸡蛋,虾皮',
-    note: '3分钟兜底菜，实在来不及时用' },
+  { name: '西红柿榨菜汤', emoji: '🍅', category: 'soup', cookTime: 12, difficulty: 1,
+    tags: ['thu','kid','fallback'], ingredients: '番茄,榨菜,葱花',
+    note: '同番茄榨菜汤，名称写法不同' },
 
-  { name: '榨菜肉丝豆腐羹', emoji: '🥣', category: 'soup', cookTime: 15, difficulty: 2,
-    tags: ['thu','rice','garlic'], ingredients: '榨菜,肉丝,豆腐,淀粉',
-    note: '榨菜是家里常备，勾芡成羹更下饭。姜蒜照放' },
+  { name: '山药排骨汤', emoji: '🥣', category: 'soup', cookTime: 70, difficulty: 3,
+    tags: ['kid','rice'], ingredients: '山药,排骨,胡萝卜,姜',
+    note: '可加胡萝卜，姜蒜照放' },
 
-  { name: '白菜豆腐丸子汤', emoji: '🥬', category: 'soup', cookTime: 25, difficulty: 2,
-    tags: ['thu','oil','kid'], ingredients: '白菜,豆腐,肉末',
-    note: '延续肉丸汤线，成本最低' },
+  { name: '玉米粉丝排骨汤', emoji: '🌽', category: 'soup', cookTime: 60, difficulty: 3,
+    tags: ['kid'], ingredients: '玉米,粉丝,排骨,姜',
+    note: '每周1次轮换' },
 
-  { name: '番茄巴沙鱼汤', emoji: '🐟', category: 'soup', cookTime: 18, difficulty: 2,
-    tags: ['thu','kid','oil','fallback'], ingredients: '番茄,巴沙鱼,姜',
-    note: '沿用番茄底味，鱼无刺果果能吃，比清蒸鲈鱼快' },
+  { name: '青菜肉丸粉丝汤', emoji: '🥬', category: 'soup', cookTime: 25, difficulty: 2,
+    tags: ['thu','oil','kid'], ingredients: '青菜,肉丸,粉丝,姜',
+    note: '肉丸少放，汤鲜' },
 
-  { name: '山药排骨汤', emoji: '🍲', category: 'soup', cookTime: 70, difficulty: 3,
-    tags: ['kid','rice'], ingredients: '山药,排骨,姜',
-    note: '每周 1 次，隔水炖锅可以不管它' },
+  { name: '番茄金针菇肥牛', emoji: '🍅', category: 'soup', cookTime: 20, difficulty: 2,
+    tags: ['thu','kid','oil','fallback'], ingredients: '番茄,金针菇,肥牛卷,姜',
+    note: '一锅出，省火' },
 
-  { name: '玉米粉丝排骨汤', emoji: '🍲', category: 'soup', cookTime: 60, difficulty: 3,
-    tags: ['kid'], ingredients: '玉米,粉丝,排骨',
-    note: '每周 1 次的轮换' },
+  { name: '番茄肥牛锅', emoji: '🍅', category: 'soup', cookTime: 20, difficulty: 2,
+    tags: ['thu','kid','fallback'], ingredients: '番茄,肥牛,金针菇,姜',
+    note: '同番茄金针菇肥牛' },
 
-  { name: '萝卜丝鲫鱼汤', emoji: '🐟', category: 'soup', cookTime: 35, difficulty: 3,
-    tags: ['kid','oil'], ingredients: '鲫鱼,白萝卜',
-    note: '奶白汤鲜，但需煎鱼，建议非周四日' },
+  { name: '番茄牛腩', emoji: '🍅', category: 'soup', cookTime: 45, difficulty: 3,
+    tags: ['kid','rice'], ingredients: '番茄,牛腩,姜,蒜',
+    note: '炖久一点，汤汁拌饭' },
 
-  // ----- 主菜（荤） -----
+  { name: '青菜三鲜汤', emoji: '🥬', category: 'soup', cookTime: 15, difficulty: 1,
+    tags: ['thu','oil','fallback'], ingredients: '青菜,豆腐,虾皮',
+    note: '简单快手' },
+
+  { name: '白菜粉丝汤', emoji: '🥬', category: 'soup', cookTime: 12, difficulty: 1,
+    tags: ['thu','fallback','oil'], ingredients: '白菜,粉丝,虾皮',
+    note: '兜底汤' },
+
+  { name: '青菜香菇鸡肉汤', emoji: '🍄', category: 'soup', cookTime: 30, difficulty: 2,
+    tags: ['thu','oil','kid'], ingredients: '青菜,香菇,鸡肉,姜',
+    note: '鸡肉切小块' },
+
+  { name: '冬瓜烩三鲜（虾丸）', emoji: '🎃', category: 'soup', cookTime: 20, difficulty: 2,
+    tags: ['thu','rice','oil','kid'], ingredients: '冬瓜,虾丸,豆腐',
+    note: '冬瓜吸汁' },
+
+  { name: '西红柿笋丝榨菜汤', emoji: '🍅', category: 'soup', cookTime: 12, difficulty: 1,
+    tags: ['thu','fallback','oil'], ingredients: '番茄,笋丝,榨菜',
+    note: '鲜上加鲜' },
+
+  // ===== 蒸菜类 =====
+  { name: '肉饼蒸蛋', emoji: '🥚', category: 'main', cookTime: 15, difficulty: 1,
+    tags: ['thu','kid','fallback'], ingredients: '猪肉末,鸡蛋,姜',
+    note: '最省火，果果爱吃' },
+
+  { name: '腊肠蒸蛋', emoji: '🌭', category: 'main', cookTime: 18, difficulty: 1,
+    tags: ['thu','kid','fallback'], ingredients: '腊肠,鸡蛋',
+    note: '省火，孩子爱吃' },
+
+  { name: '腊肠炖蛋', emoji: '🌭', category: 'main', cookTime: 18, difficulty: 1,
+    tags: ['thu','kid','fallback'], ingredients: '腊肠,鸡蛋',
+    note: '同腊肠蒸蛋' },
+
+  { name: '清蒸鲈鱼', emoji: '🐟', category: 'main', cookTime: 20, difficulty: 2,
+    tags: ['thu','kid','rice','garlic'], ingredients: '鲈鱼,姜,葱,酱油',
+    note: '当天买当天做' },
+
+  { name: '梅干菜汪刺鱼', emoji: '🐟', category: 'main', cookTime: 20, difficulty: 2,
+    tags: ['thu','rice','garlic'], ingredients: '汪刺鱼,梅干菜,姜,蒜',
+    note: '梅干菜吸汁入味' },
+
+  { name: '雪菜汪刺鱼', emoji: '🐟', category: 'main', cookTime: 20, difficulty: 2,
+    tags: ['thu','rice','garlic'], ingredients: '汪刺鱼,雪菜,姜,蒜',
+    note: '咸鲜' },
+
+  { name: '清蒸梭子蟹', emoji: '🦀', category: 'main', cookTime: 15, difficulty: 2,
+    tags: ['thu','seafood'], ingredients: '梭子蟹,姜,葱',
+    note: '当天买当天做，蒸10分钟' },
+
+  { name: '蛤蜊蒸蛋', emoji: '🥚', category: 'main', cookTime: 12, difficulty: 2,
+    tags: ['thu','kid','fallback','seafood'], ingredients: '蛤蜊,鸡蛋',
+    note: '鲜味足' },
+
+  // ===== 主荤类 =====
   { name: '红烧鸡翅', emoji: '🍗', category: 'main', cookTime: 30, difficulty: 2,
     tags: ['rice','garlic','kid'], ingredients: '鸡翅,姜,蒜,酱油',
     note: '姜蒜多放，汤汁拌饭' },
 
-  { name: '可乐鸡翅', emoji: '🍗', category: 'main', cookTime: 30, difficulty: 2,
+  { name: '可乐鸡翅', emoji: '🥤', category: 'main', cookTime: 30, difficulty: 2,
     tags: ['kid','rice'], ingredients: '鸡翅,可乐,姜',
     note: '果果爱，甜口' },
 
-  { name: '土豆烧鸡块', emoji: '🥔', category: 'main', cookTime: 25, difficulty: 2,
-    tags: ['kid','rice','garlic'], ingredients: '鸡腿肉,土豆,姜蒜',
-    note: '把红烧鸡翅和红烧土豆合并，省时够味' },
+  { name: '糖醋排骨（少醋多汤汁）', emoji: '🍖', category: 'main', cookTime: 35, difficulty: 3,
+    tags: ['kid','rice'], ingredients: '排骨,醋,糖,酱油,姜',
+    note: '少醋多汤汁，拌饭绝了' },
 
-  { name: '雪菜炒鱿鱼', emoji: '🦑', category: 'main', cookTime: 15, difficulty: 2,
-    tags: ['thu','rice','garlic'], ingredients: '鱿鱼,雪菜,姜蒜',
-    note: '咸鲜下饭，耐储存食材。姜蒜多放' },
+  { name: '红烧肉土豆（多汤汁）', emoji: '🥘', category: 'main', cookTime: 40, difficulty: 3,
+    tags: ['rice','garlic','kid'], ingredients: '五花肉,土豆,姜,蒜,酱油',
+    note: '汤汁多一点拌饭' },
 
-  { name: '香菇肉饼蒸蛋', emoji: '🍖', category: 'main', cookTime: 18, difficulty: 2,
-    tags: ['thu','kid','rice','garlic'], ingredients: '猪肉末,香菇,鸡蛋',
-    note: '肉饼蒸蛋的升级版，香菇吸汁，姜蒜照放' },
-
-  { name: '肉饼蒸蛋', emoji: '🥚', category: 'main', cookTime: 15, difficulty: 1,
-    tags: ['thu','kid','fallback'], ingredients: '猪肉末,鸡蛋',
-    note: '家里最省火、果果爱吃的菜之一' },
-
-  { name: '腊肠蒸蛋', emoji: '🥚', category: 'main', cookTime: 18, difficulty: 1,
-    tags: ['thu','kid','fallback'], ingredients: '腊肠,鸡蛋',
-    note: '几乎每两天一次，省火果果爱吃' },
-
-  { name: '蛤蜊蒸蛋', emoji: '🥚', category: 'main', cookTime: 12, difficulty: 2,
-    tags: ['thu','kid','fallback','seafood'], ingredients: '蛤蜊,鸡蛋',
-    note: '肉饼蒸蛋换食材版本，鲜味足' },
-
-  { name: '黄焖鸡', emoji: '🍗', category: 'main', cookTime: 35, difficulty: 3,
-    tags: ['rice','garlic','kid'], ingredients: '鸡腿肉,香菇,青椒',
-    note: '一锅出汤汁拌饭，比红烧鸡翅变化大' },
-
-  { name: '红烧猪蹄', emoji: '🐖', category: 'main', cookTime: 75, difficulty: 4,
+  { name: '红烧猪蹄', emoji: '🐷', category: 'main', cookTime: 75, difficulty: 4,
     tags: ['rice','prep'], ingredients: '猪蹄,姜,八角',
-    note: '一次多做、分装吃两顿。建议非周四日' },
+    note: '一次多做分装，非周四日' },
 
-  { name: '肉末茄子（蒸后炒）', emoji: '🍆', category: 'main', cookTime: 20, difficulty: 2,
-    tags: ['thu','rice','oil'], ingredients: '茄子,肉末,姜蒜',
-    note: '先蒸后炒解决吃油问题，姜蒜多放' },
+  { name: '油爆罗氏虾', emoji: '🦐', category: 'main', cookTime: 15, difficulty: 2,
+    tags: ['thu','seafood','rice','garlic'], ingredients: '罗氏虾,姜,蒜',
+    note: '当天买当天做' },
 
-  { name: '蒜苗回锅肉（少油）', emoji: '🥬', category: 'main', cookTime: 20, difficulty: 3,
-    tags: ['thu','rice','garlic'], ingredients: '五花肉,蒜苗,豆瓣酱',
-    note: '蒜苗就是姜蒜多的天然载体，少油版' },
+  { name: '糖醋罗氏虾', emoji: '🦐', category: 'main', cookTime: 15, difficulty: 2,
+    tags: ['thu','seafood','rice'], ingredients: '罗氏虾,醋,糖,酱油',
+    note: '甜口虾' },
+
+  { name: '鲜虾豆腐煲', emoji: '🦐', category: 'main', cookTime: 20, difficulty: 2,
+    tags: ['thu','kid','rice','garlic'], ingredients: '虾,豆腐,姜,蒜',
+    note: '虾无壳或去壳' },
+
+  { name: '白切牛腱子', emoji: '🐄', category: 'main', cookTime: 40, difficulty: 2,
+    tags: ['rice','garlic'], ingredients: '牛腱子,姜,蒜,酱油',
+    note: '冷盘，可提前做好' },
+
+  { name: '泉水牛肉', emoji: '💧', category: 'main', cookTime: 30, difficulty: 2,
+    tags: ['rice','garlic'], ingredients: '牛肉,姜,蒜,小米辣',
+    note: '冷盘' },
+
+  { name: '三文鱼', emoji: '🐟', category: 'main', cookTime: 15, difficulty: 2,
+    tags: ['thu','kid','rice'], ingredients: '三文鱼,姜,葱',
+    note: '煎或刺身均可' },
+
+  { name: '糖醋鲤鱼', emoji: '🐟', category: 'main', cookTime: 35, difficulty: 3,
+    tags: ['rice','garlic'], ingredients: '鲤鱼,醋,糖,酱油,姜,蒜',
+    note: '大菜，可提前做' },
+
+  { name: '红烧鲈鱼', emoji: '🐟', category: 'main', cookTime: 25, difficulty: 2,
+    tags: ['rice','garlic'], ingredients: '鲈鱼,姜,蒜,酱油',
+    note: '红烧版清蒸鲈鱼' },
 
   { name: '银鱼炒蛋', emoji: '🐟', category: 'main', cookTime: 8, difficulty: 1,
-    tags: ['thu','kid','fallback','seafood'], ingredients: '银鱼,鸡蛋',
-    note: '果果爱吃的海鲜蛋' },
+    tags: ['thu','kid','fallback','seafood'], ingredients: '银鱼,鸡蛋,姜',
+    note: '果果爱' },
 
-  { name: '韭黄炒鸡蛋', emoji: '🥚', category: 'main', cookTime: 8, difficulty: 1,
-    tags: ['thu','kid','fallback'], ingredients: '韭黄,鸡蛋',
-    note: '比韭菜笋丝更稳，孩子也吃' },
+  { name: '爆炒蛏子', emoji: '🦐', category: 'main', cookTime: 12, difficulty: 2,
+    tags: ['thu','seafood','rice','garlic'], ingredients: '蛏子,姜,蒜',
+    note: '当天买当天做' },
 
-  // ----- 蔬菜 -----
+  { name: '肉末豆腐抱蛋', emoji: '🥚', category: 'main', cookTime: 15, difficulty: 2,
+    tags: ['thu','kid','rice','garlic'], ingredients: '肉末,豆腐,鸡蛋,姜',
+    note: '豆腐和鸡蛋抱在一起' },
+
+  { name: '白灼皮皮虾', emoji: '🦐', category: 'main', cookTime: 10, difficulty: 2,
+    tags: ['thu','seafood'], ingredients: '皮皮虾,姜,葱',
+    note: '白灼当天做，皮不好剥' },
+
+  { name: '白灼秋葵', emoji: '🥬', category: 'main', cookTime: 8, difficulty: 1,
+    tags: ['thu','kid','fallback'], ingredients: '秋葵,蒜,酱油',
+    note: '白灼后蘸料吃' },
+
+  { name: '椒盐鸡翅', emoji: '🍗', category: 'main', cookTime: 30, difficulty: 2,
+    tags: ['rice','garlic'], ingredients: '鸡翅,椒盐,姜',
+    note: '换口味版鸡翅' },
+
+  { name: '油豆腐红烧肉', emoji: '🥘', category: 'main', cookTime: 40, difficulty: 3,
+    tags: ['rice','garlic'], ingredients: '五花肉,油豆腐,姜,蒜,酱油',
+    note: '油豆腐吸汁绝了' },
+
+  // ===== 炒菜类 =====
+  { name: '鱼香肉丝', emoji: '🥩', category: 'veg', cookTime: 15, difficulty: 2,
+    tags: ['thu','rice','garlic'], ingredients: '猪肉丝,木耳,笋丝,姜,蒜',
+    note: '姜蒜多放' },
+
+  { name: '雪菜炒鱿鱼', emoji: '🦑', category: 'veg', cookTime: 15, difficulty: 2,
+    tags: ['thu','rice','garlic'], ingredients: '鱿鱼,雪菜,姜,蒜',
+    note: '咸鲜下饭，姜蒜多放' },
+
+  { name: '韭菜笋丝（少油）', emoji: '🌱', category: 'veg', cookTime: 10, difficulty: 2,
+    tags: ['thu','rice','garlic'], ingredients: '韭菜,笋丝,姜',
+    note: '少油快炒' },
+
   { name: '炒土豆丝', emoji: '🥔', category: 'veg', cookTime: 12, difficulty: 1,
-    tags: ['thu','oil','fallback'], ingredients: '土豆,干辣椒',
+    tags: ['thu','oil','fallback'], ingredients: '土豆,干辣椒,姜',
     note: '主力蔬菜' },
 
   { name: '塌扁小土豆', emoji: '🥔', category: 'veg', cookTime: 25, difficulty: 2,
@@ -1111,46 +1200,86 @@ const DEFAULT_DISHES = [
     note: '土豆糯一点，果果爱' },
 
   { name: '红烧土豆', emoji: '🥔', category: 'veg', cookTime: 22, difficulty: 2,
-    tags: ['rice','kid','garlic'], ingredients: '土豆,姜蒜,酱油',
-    note: '土豆要糯、汤汁多一点' },
+    tags: ['rice','kid','garlic'], ingredients: '土豆,姜,蒜,酱油',
+    note: '汤汁多一点拌饭' },
 
-  { name: '凉拌黄瓜', emoji: '🥒', category: 'veg', cookTime: 8, difficulty: 1,
-    tags: ['thu','fallback','oil'], ingredients: '黄瓜,蒜,醋',
-    note: '别放过夜，当天吃完' },
+  { name: '蒜蓉粉丝娃娃菜', emoji: '🥬', category: 'veg', cookTime: 10, difficulty: 1,
+    tags: ['thu','oil','garlic'], ingredients: '娃娃菜,粉丝,蒜蓉',
+    note: '少油，蒜蓉多放' },
+
+  { name: '上汤白菜', emoji: '🥬', category: 'veg', cookTime: 12, difficulty: 2,
+    tags: ['thu','oil','kid'], ingredients: '白菜,皮蛋,咸蛋,姜',
+    note: '有汤' },
+
+  { name: '清炒鸡毛菜', emoji: '🥬', category: 'veg', cookTime: 6, difficulty: 1,
+    tags: ['thu','fallback','oil'], ingredients: '鸡毛菜,姜',
+    note: '快手青菜' },
+
+  { name: '清炒青菜', emoji: '🥬', category: 'veg', cookTime: 6, difficulty: 1,
+    tags: ['thu','fallback','oil'], ingredients: '青菜,姜',
+    note: '兜底青菜' },
 
   { name: '清炒杭白菜', emoji: '🥬', category: 'veg', cookTime: 6, difficulty: 1,
-    tags: ['thu','fallback','oil'], ingredients: '杭白菜',
-    note: '日常收尾清口菜' },
+    tags: ['thu','fallback','oil'], ingredients: '杭白菜,姜',
+    note: '日常清口' },
 
-  { name: '香菇青菜', emoji: '🥬', category: 'veg', cookTime: 8, difficulty: 1,
-    tags: ['thu','fallback','oil'], ingredients: '青菜,香菇',
+  { name: '香菇青菜', emoji: '🍄', category: 'veg', cookTime: 8, difficulty: 1,
+    tags: ['thu','fallback','oil'], ingredients: '青菜,香菇,姜',
     note: '姜蒜多放，少油' },
 
-  { name: '西兰花（少油）', emoji: '🥦', category: 'veg', cookTime: 8, difficulty: 1,
+  { name: '西兰花清炒（焯水少油）', emoji: '🥦', category: 'veg', cookTime: 8, difficulty: 1,
     tags: ['thu','fallback','oil'], ingredients: '西兰花,蒜',
     note: '焯水后少油炒，蒜蓉多放' },
 
-  { name: '蚝油生菜', emoji: '🥬', category: 'veg', cookTime: 5, difficulty: 1,
-    tags: ['thu','fallback','oil'], ingredients: '生菜,蚝油',
-    note: '30秒出锅的兜底青菜' },
+  { name: '西兰花炒虾仁', emoji: '🥦', category: 'veg', cookTime: 12, difficulty: 2,
+    tags: ['thu','kid','rice','garlic'], ingredients: '西兰花,虾仁,蒜',
+    note: '有荤有素' },
 
-  { name: '红烧冬瓜', emoji: '🥒', category: 'veg', cookTime: 15, difficulty: 1,
-    tags: ['thu','rice','oil','kid'], ingredients: '冬瓜,酱油',
-    note: '冬瓜吸汁像肉，便宜少油' },
+  { name: '清炒藕片', emoji: '🪷', category: 'veg', cookTime: 8, difficulty: 1,
+    tags: ['thu','oil'], ingredients: '莲藕,姜',
+    note: '脆爽' },
 
-  { name: '蒜香杏鲍菇', emoji: '🍄', category: 'veg', cookTime: 10, difficulty: 1,
-    tags: ['thu','oil','garlic'], ingredients: '杏鲍菇,蒜',
-    note: '口感像肉，少油也好吃' },
+  { name: '油焖茭白', emoji: '🎋', category: 'veg', cookTime: 15, difficulty: 2,
+    tags: ['thu','rice','oil'], ingredients: '茭白,酱油,姜',
+    note: '少油版' },
 
-  { name: '雪菜毛豆炒肉丝', emoji: '🥬', category: 'veg', cookTime: 12, difficulty: 2,
-    tags: ['thu','rice','garlic'], ingredients: '雪菜,毛豆,肉丝',
-    note: '雪菜的第二个用法' },
+  { name: '毛豆烧豆腐', emoji: '🫘', category: 'veg', cookTime: 15, difficulty: 2,
+    tags: ['thu','rice','oil'], ingredients: '毛豆,豆腐,姜',
+    note: '家常菜' },
 
-  { name: '洋葱炒牛肉丝', emoji: '🧅', category: 'veg', cookTime: 12, difficulty: 2,
-    tags: ['thu','rice'], ingredients: '洋葱,牛肉丝',
-    note: '姜蒜多放，少醋' },
+  { name: '凉拌黄瓜', emoji: '🥒', category: 'veg', cookTime: 8, difficulty: 1,
+    tags: ['thu','fallback','oil'], ingredients: '黄瓜,蒜,醋',
+    note: '当天做当天吃完' },
 
-  // ----- 主食 -----
+  { name: '山药青椒炒肉丝', emoji: '🥩', category: 'veg', cookTime: 15, difficulty: 2,
+    tags: ['thu','rice','garlic'], ingredients: '山药,青椒,肉丝,姜,蒜',
+    note: '姜蒜多放' },
+
+  { name: '雪菜炒笋片', emoji: '🌱', category: 'veg', cookTime: 10, difficulty: 2,
+    tags: ['thu','rice','garlic'], ingredients: '雪菜,笋片,姜',
+    note: '鲜' },
+
+  { name: '白菜炒火腿肠', emoji: '🥬', category: 'veg', cookTime: 10, difficulty: 1,
+    tags: ['thu','fallback','oil'], ingredients: '白菜,火腿肠,姜',
+    note: '简单快手' },
+
+  { name: '清炒大白菜火腿肠', emoji: '🥬', category: 'veg', cookTime: 10, difficulty: 1,
+    tags: ['thu','fallback','oil'], ingredients: '大白菜,火腿肠,姜',
+    note: '同白菜炒火腿肠' },
+
+  { name: '娃娃菜焖油豆腐', emoji: '🥬', category: 'veg', cookTime: 15, difficulty: 2,
+    tags: ['thu','rice','oil'], ingredients: '娃娃菜,油豆腐,姜',
+    note: '油豆腐吸汁' },
+
+  { name: '青菜烧芋头', emoji: '🥬', category: 'veg', cookTime: 20, difficulty: 2,
+    tags: ['kid','rice'], ingredients: '青菜,芋头,姜',
+    note: '软糯' },
+
+  { name: '红烧芋子', emoji: '🥔', category: 'veg', cookTime: 22, difficulty: 2,
+    tags: ['rice','garlic'], ingredients: '芋头,酱油,姜,蒜',
+    note: '软糯入味' },
+
+  // ===== 主食 =====
   { name: '米饭', emoji: '🍚', category: 'staple', cookTime: 30, difficulty: 1,
     tags: ['fallback'], ingredients: '大米',
     note: '电饭煲默认' },
